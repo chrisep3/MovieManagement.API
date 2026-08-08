@@ -1,0 +1,19 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Local configuration and secrets
+appsettings.Development.json
+.env
+
+# Local-only Docker configuration
+docker-compose.yml
+
+# Archives and logs
+*.zip
+*.log
