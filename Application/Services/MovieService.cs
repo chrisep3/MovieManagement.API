@@ -1,4 +1,4 @@
-using MovieManagement.API.Application.DTOs;
+﻿using MovieManagement.API.Application.DTOs;
 using MovieManagement.API.Domain;
 using MovieManagement.API.Infrastructure.Repositories;
 
@@ -22,9 +22,18 @@ public class MovieService : IMovieService
     public async Task<MovieDto?> GetMovieByIdAsync(int id)
     {
         var movie = await _repository.GetByIdAsync(id);
-        return movie is null ? null : MapToDto(movie);
+
+        if (movie is null)
+        {
+            return null; // δε λέμε NotFound(), διότι ο Controller είναι ο υπεύθυνος για HHTP responses
+        }
+        else
+        {
+            return MapToDto(movie);//200 OK, JSON με την ταινία
+        }
     }
 
+    // επιστρέφει αρχείο μορφής MovieDTO
     public async Task<MovieDto> CreateMovieAsync(CreateMovieDto createDto)
     {
         var movie = new Movie
@@ -66,7 +75,7 @@ public class MovieService : IMovieService
         return await _repository.DeleteAsync(id);
     }
 
-    private static MovieDto MapToDto(Movie movie)
+    private static MovieDto MapToDto(Movie movie)// μετατρεπει αντικειμεμο Movie από τη βάση σε MovieDTO
     {
         return new MovieDto(
             movie.Id,

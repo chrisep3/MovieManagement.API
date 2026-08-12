@@ -1,11 +1,20 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MovieManagement.API.Application.DTOs;
 using MovieManagement.API.Application.Services;
 
 namespace MovieManagement.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
+//[ApiController]
+// Το CreateMovieDto περιέχει τους κανόνες ελέγχου. Το [ApiController] λέει στο ASP.NET Core να Ενεργοποιείσει αυτόματες ευκολίες: Automatic Model Binding από το Body, 
+// αυτόματο Validation (ελέγχους) και επιστροφή 400 Bad Request αν τα δεδομένα είναι λάθος.
+
+//[Route("api/[controller]")]
+// «Ζευγαρώνει» τον Controller με την επικεφαλίδα του HTTP αιτήματος.
+// Όταν έρθει ένα αίτημα με header "POST /api/movies", το .NET καταλαβαίνει 
+// ότι πρέπει να το στείλει στον MoviesController για επεξεργασία.
+
+[ApiController]  
+[Route("api/[controller]")] 
 public class MoviesController : ControllerBase
 {
     private readonly IMovieService _service;
@@ -25,7 +34,7 @@ public class MoviesController : ControllerBase
     [HttpGet("{id:int}")]
     public async Task<ActionResult<MovieDto>> GetMovieById(int id)
     {
-        var movie = await _service.GetMovieByIdAsync(id);
+        var movie = await _service.GetMovieByIdAsync(id);// το MovieDTO δημιουργείται μέσα στο service, αν υπάρχει
 
         if (movie is null)
         {
@@ -38,18 +47,17 @@ public class MoviesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<MovieDto>> CreateMovie(CreateMovieDto createDto)
     {
-        var movie = await _service.CreateMovieAsync(createDto);
+        var movie = await _service.CreateMovieAsync(createDto); // 1. Καλούμε το Service για να κάνει τη δουλειά ΟΛΗ ΩΣ ΤΗ ΒΑΣΗ ΚΑΙ ΠΙΣΩ
 
+        //είναι ένα helper που φτιάχνει ολόκληρη HTTP απάντηση.
         return CreatedAtAction(
             nameof(GetMovieById),
             new { id = movie.Id },
-            movie);
+            movie); // 2. Επιστρέφουμε HTTP 201 Created μαζί με το αποτέλεσμα
     }
 
     [HttpPut("{id:int}")]
-    public async Task<ActionResult<MovieDto>> UpdateMovie(
-        int id,
-        UpdateMovieDto updateDto)
+    public async Task<ActionResult<MovieDto>> UpdateMovie(int id, UpdateMovieDto updateDto)
     {
         var movie = await _service.UpdateMovieAsync(id, updateDto);
 
