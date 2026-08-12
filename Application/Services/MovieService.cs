@@ -49,9 +49,7 @@ public class MovieService : IMovieService
         return MapToDto(createdMovie);
     }
 
-    public async Task<MovieDto?> UpdateMovieAsync(
-        int id,
-        UpdateMovieDto updateDto)
+    public async Task<MovieDto?> UpdateMovieAsync(int id, UpdateMovieDto updateDto)
     {
         var existingMovie = await _repository.GetByIdAsync(id);
 

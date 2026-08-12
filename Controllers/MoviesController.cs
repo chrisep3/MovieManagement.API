@@ -72,9 +72,9 @@ public class MoviesController : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteMovie(int id)
     {
-        var deleted = await _service.DeleteMovieAsync(id);
+        var serviceResult = await _service.DeleteMovieAsync(id);
 
-        if (!deleted)
+        if (!serviceResult)
         {
             return NotFound($"Movie with id {id} was not found.");
         }
