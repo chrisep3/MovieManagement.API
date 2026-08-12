@@ -19,7 +19,7 @@ public class MoviesController : ControllerBase
 {
     private readonly IMovieService _service;
 
-    public MoviesController(IMovieService service)
+    public MoviesController(IMovieService service) //η μεταβλητή service έχει δηλωμένο τύπο IMovieService, αλλά το πραγματικό αντικείμενο που λαμβάνει είναι MovieService λόγω Program.cs
     {
         _service = service;
     }

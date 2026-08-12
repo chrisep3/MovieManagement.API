@@ -1,16 +1,17 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using MovieManagement.API.Domain;
 
 namespace MovieManagement.API.Infrastructure;
 
 public class AppDbContext : DbContext
 {
+    //DbContextOptions είναι οι οδηγίες σύνδεσης και λειτουργίας του AppDbContext
     public AppDbContext(DbContextOptions<AppDbContext> options)
         : base(options)
     {
     }
 
-    public DbSet<Movie> Movies => Set<Movie>();
+    public DbSet<Movie> Movies { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
