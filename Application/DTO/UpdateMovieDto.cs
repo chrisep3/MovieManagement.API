@@ -2,22 +2,23 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MovieManagement.API.Application.DTOs;
 
-public record UpdateMovieDto(
-    [property: Required]
-    [property: StringLength(200)]
-    string Title,
+public class UpdateMovieDto
+{
+    [Required]
+    [StringLength(200)]
+    public string Title { get; set; } = string.Empty;
 
-    [property: Required]
-    [property: StringLength(100)]
-    string Director,
+    [Required]
+    [StringLength(100)]
+    public string Director { get; set; } = string.Empty;
 
-    [property: Range(1888, 2100)]
-    int ReleaseYear,
+    [Range(1888, 2100)]
+    public int ReleaseYear { get; set; }
 
-    [property: Required]
-    [property: StringLength(50)]
-    string Genre,
+    [Required]
+    [StringLength(50)]
+    public string Genre { get; set; } = string.Empty;
 
-    [property: Range(typeof(decimal), "0", "10")]
-    decimal Rating
-);
+    [Range(typeof(decimal), "0", "10")]
+    public decimal Rating { get; set; }
+}

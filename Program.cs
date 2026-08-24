@@ -9,6 +9,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     ?? throw new InvalidOperationException(
         "Connection string 'DefaultConnection' was not found.");
 
+
+//Αν ζητηθεί AppDbContext, δημιούργησε το με Npgsql και το παραπάνω connection string.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(connectionString));
 
@@ -17,6 +19,7 @@ builder.Services.AddScoped<IMovieService, MovieService>(); //Όταν κάποι
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddControllers();
 
 var app = builder.Build();

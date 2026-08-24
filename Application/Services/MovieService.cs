@@ -75,12 +75,16 @@ public class MovieService : IMovieService
 
     private static MovieDto MapToDto(Movie movie)// μετατρεπει αντικειμεμο Movie από τη βάση σε MovieDTO
     {
-        return new MovieDto(
-            movie.Id,
-            movie.Title,
-            movie.Director,
-            movie.ReleaseYear,
-            movie.Genre,
-            movie.Rating);
+        MovieDto movieDto = new MovieDto();
+
+
+        movieDto.Id = movie.Id;
+        movieDto.Title = movie.Title;
+        movieDto.Director = movie.Director;
+        movieDto.ReleaseYear = movie.ReleaseYear;
+        movieDto.Genre = movie.Genre;
+        movieDto.Rating = movie.Rating;
+
+        return movieDto;
     }
 }

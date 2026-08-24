@@ -19,11 +19,11 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<Movie>(entity =>
         {
-            entity.HasKey(movie => movie.Id);
+            entity.HasKey(movie => movie.Id); //Το Id είναι primary key
             entity.Property(movie => movie.Title).IsRequired().HasMaxLength(200);
             entity.Property(movie => movie.Director).IsRequired().HasMaxLength(100);
             entity.Property(movie => movie.Genre).IsRequired().HasMaxLength(50);
-            entity.Property(movie => movie.Rating).HasPrecision(3, 1);
+            entity.Property(movie => movie.Rating).HasPrecision(3, 1);//Βαθμολογία όπως 9.3
 
             entity.HasData(
                 new Movie
