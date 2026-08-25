@@ -49,7 +49,7 @@ public class MoviesController : ControllerBase
     {
         var movie = await _service.CreateMovieAsync(createDto); // 1. Καλούμε το Service για να κάνει τη δουλειά ΟΛΗ ΩΣ ΤΗ ΒΑΣΗ ΚΑΙ ΠΙΣΩ
 
-        //είναι ένα helper που φτιάχνει ολόκληρη HTTP απάντηση.
+        // 1.επιλέγει το σχέδιο URL πχ /api/Movies/{id} 2.συμπληρώνει το Id 3.το movie που θα γίνει JSON Body 4.παράγει 201 Created
         return CreatedAtAction(
             nameof(GetMovieById),
             new { id = movie.Id },
