@@ -2,6 +2,16 @@
 
 A small ASP.NET Core Web API for managing a movie collection. The project demonstrates a layered Controller-Service-Repository structure, DTOs, Entity Framework Core migrations and PostgreSQL persistence.
 
+## 🎥 Video Walkthrough
+
+Want to see the API in action? Watch the [MovieManagement API Project Walkthrough](https://youtu.be/dgG0SLnue6w).
+
+**Short on time?** Watch the first **4:24** for a quick introduction and hands-on application demonstration.
+
+- [0:00 - Introduction & Project Overview](https://youtu.be/dgG0SLnue6w)
+- [0:57 - Hands-on Application Demo](https://youtu.be/dgG0SLnue6w?t=57)
+- [4:24 - Technical Walkthrough: Diagrams & Visual Studio](https://youtu.be/dgG0SLnue6w?t=264)
+
 ## Features
 
 - List all movies
