@@ -4,13 +4,13 @@ A small ASP.NET Core Web API for managing a movie collection. The project demons
 
 ## 🎥 Video Walkthrough
 
-Want to see the API in action? Watch the [MovieManagement API Project Walkthrough](https://youtu.be/QzZQr9Zh_MI).
+Want to see the API in action? Watch the [MovieManagement API Project Walkthrough](https://youtu.be/HvithA5QyWs).
 
-**Short on time?** Watch the first **4:04** for a quick introduction and hands-on application demonstration.
+**Short on time?** Watch the first **4:11** for a quick introduction and hands-on application demonstration.
 
-- [0:00 - Introduction & Project Overview](https://youtu.be/QzZQr9Zh_MI)
-- [0:53 - Hands-on Application Demo](https://youtu.be/QzZQr9Zh_MI?t=53)
-- [4:04 - Technical Walkthrough: Diagrams & Visual Studio](https://youtu.be/QzZQr9Zh_MI?t=244)
+- [0:00 - Introduction & Project Overview](https://youtu.be/HvithA5QyWs)
+- [0:54 - Hands-on Application Demo](https://youtu.be/HvithA5QyWs?t=54)
+- [4:11 - Technical Walkthrough: Diagrams & Visual Studio](https://youtu.be/HvithA5QyWs?t=251)
 
 ## Features
 
